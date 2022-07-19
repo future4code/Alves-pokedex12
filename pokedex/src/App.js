@@ -4,10 +4,10 @@ import Router from './routes/Router'
 
 function App() {
   return (
-    <Div>
-      <Router> 
-      </Router>
-    </Div>
+    <Router>
+       
+    </Router>
+    
   )
 }
 
