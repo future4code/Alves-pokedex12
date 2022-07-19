@@ -33,5 +33,24 @@ button{
         transition: 0.2s;
     }
 }
+@media (max-width: 800px) {
+    flex-direction: column;
+    height: fit-content;
+    img{
+        position: static;
+        margin: 20px 0 20px 0;
+    }
+    button{
+        margin: 20px 0 20px 0;
+        width: 250px;
+        height: 60px;
+        :active{
+        background-color: #e11f1f;
+        border: 2px solid white;
+        text-decoration: underline;
+        transition: 0.2s;
+        }
+    }
+}
 `
 
