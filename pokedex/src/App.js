@@ -5,9 +5,11 @@ import GlobalState from './global/GlobalState';
 
 function App() {
   return (
-    <GlobalState>
+   <Div>
+     <GlobalState>
       <Router />
     </GlobalState>
+   </Div>
   )
 }
 
