@@ -1,14 +1,16 @@
-import React from 'react';
-import { Div } from './style';
+import React from 'react'
+import { Div } from './style'
 import Router from './routes/Router'
+import Card from './components/Card/Card'
 
 function App() {
   return (
-    <Router>
-       
-    </Router>
-    
+    <Div>
+      <Router>
+      </Router>  
+    </Div>
+
   )
 }
 
-export default App;
+export default App
