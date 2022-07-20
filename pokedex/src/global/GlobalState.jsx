@@ -11,23 +11,29 @@ const GlobalState = (props) => {
 
     // REQUISIÇÕES
     const getAllPokemons = () => {
-        axios.get("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0")
-        .then((res) => {
-          setAllPokemons(res.data.results)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+      axios.get("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0")
+      .then((res) => {
+        setAllPokemons(res.data.results)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
     }
+
+    // FUNÇÃO DE ADICIONAR À POKEDEX
+    const capturePokemon = (pokeName) => {
+      console.log(pokeName)
+      setPokedex([...pokedex, pokeName])
+    }
+  
 
     // ORGANIZANDO
 
-    const states = { allPokemons, pokedex }
-    const setters = {setPokedex}
-    const requests = { getAllPokemons }
+    const states = { allPokemons, pokedex}
+    const requests = { getAllPokemons, capturePokemon}
 
     return (
-        <GlobalStateContext.Provider value={{states, setters, requests}}>
+        <GlobalStateContext.Provider value={{states, requests}}>
             {props.children}
         </GlobalStateContext.Provider>
     )
