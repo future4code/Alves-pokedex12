@@ -1,15 +1,13 @@
 import React from 'react'
 import { Div } from './style'
 import Router from './routes/Router'
-import Card from './components/Card/Card'
+import GlobalState from './global/GlobalState';
 
 function App() {
   return (
-    <Div>
-      <Router>
-      </Router>  
-    </Div>
-
+    <GlobalState>
+      <Router />
+    </GlobalState>
   )
 }
 

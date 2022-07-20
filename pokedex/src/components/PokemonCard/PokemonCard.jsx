@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {goToDetailsPage} from '../../routes/Cordinator'
 
+
 export const PokemonCard = (props) => {
 
     const navigate = useNavigate()
@@ -18,16 +19,18 @@ export const PokemonCard = (props) => {
 
     const getPokemonDetails = (pokeName) => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
-            .then((res) => {
-                setPokeName(res.data.name)
-                setOrder(res.data.order)
-                setTypes(res.data.types)
+        .then((res) => {
+            setPokeName(res.data.name)
+            setOrder(res.data.order)
+            setTypes(res.data.types)
+            // console.log(res.data.stats)
                 
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+         })
+        .catch((err) => {
+            console.log(err)
+        })
     }
+
 
     const listTypes = types.map((type) => {
         return (

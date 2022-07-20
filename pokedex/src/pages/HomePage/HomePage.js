@@ -3,28 +3,18 @@ import { useState, useEffect } from 'react'
 import Header from '../../components/Header/Header'
 import axios from 'axios'
 import { PokemonCard } from '../../components/PokemonCard/PokemonCard'
+import { useContext } from 'react'
+import GlobalStateContext from '../../global/GlobalStateContext'
 
 const HomePage = () => {
 
-  const [allPokemons, setAllPokemons] = useState([])
+  const {states, setters, requests} = useContext(GlobalStateContext)
 
   useEffect(() => {
-    getAllPokemons()
-  }, [])
+    requests.getAllPokemons()
+  }, [requests])
 
-  const getAllPokemons = () => {
-    axios.get("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0")
-    .then((res) => {
-      setAllPokemons(res.data.results)
-      console.log(allPokemons)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-  }
-
-
-  const allPokemonsList = allPokemons.map((pokemon) => {
+  const allPokemonsList = states.allPokemons.map((pokemon) => {
 
     return (
       <div key={pokemon.name}>
