@@ -1,5 +1,16 @@
 import React from 'react'
+import {useNavigate, useParams} from 'react-router-dom'
 
-export default function DetailsPage() {
-  return <div>DetailsPage</div>
+const DetailsPage = () => {
+
+  const params = useParams()
+
+  return (
+    <div>
+      DetailsPage
+      <h2>{params.name}</h2>
+    </div>
+  )
 }
+
+export default DetailsPage

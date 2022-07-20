@@ -6,9 +6,10 @@ import Card from './components/Card/Card'
 function App() {
   return (
     <Div>
-      <Router></Router>
-      <Card />
+      <Router>
+      </Router>  
     </Div>
+
   )
 }
 
