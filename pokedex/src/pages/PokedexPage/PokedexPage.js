@@ -4,9 +4,10 @@ import GlobalStateContext from '../../global/GlobalStateContext'
 
 const PokedexPage = () => {
   const { states, setters, requests } = useContext(GlobalStateContext)
-
-  const pokedexList = states.pokedex.map((pokemon) => {
-    return <h3>{pokemon}</h3>
+  
+  console.log(states.pokedexStorage)
+  const pokedexList = states.pokedexStorage.map((pokemon) => {
+    return <h3 key={pokemon}>{pokemon}</h3>
   })
 
   return (

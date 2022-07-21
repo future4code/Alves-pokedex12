@@ -1,6 +1,6 @@
 import Reac from "react"
 import GlobalStateContext from "./GlobalStateContext"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios"
 
 const GlobalState = (props) => {
@@ -24,13 +24,27 @@ const GlobalState = (props) => {
     const capturePokemon = (pokeName) => {
       console.log(pokeName)
       setPokedex([...pokedex, pokeName])
+      localStorage.setItem('pokedex', JSON.stringify(pokedex))
+    }
+
+    
+    
+
+    // FUNÇÃO DE REMOVER DA POKEDEX
+    const removePokemon = (pokeName) => {
+      setPokedex(pokedex.filter((pokemon) => {
+        if(pokemon !== pokeName){
+          return pokemon
+        }
+      }))
     }
   
+    const pokedexStorage = JSON.parse(localStorage.getItem('pokedex'))
 
     // ORGANIZANDO
 
-    const states = { allPokemons, pokedex}
-    const requests = { getAllPokemons, capturePokemon}
+    const states = { allPokemons, pokedex, pokedexStorage}
+    const requests = { getAllPokemons, capturePokemon, removePokemon}
 
     return (
         <GlobalStateContext.Provider value={{states, requests}}>
