@@ -5,7 +5,49 @@ position: relative;
 width:440px;
 height:210px;
 border-radius:12px;
-background-color: #729f92;
+background-color: ${props => {
+  switch (props.pokeType) {
+    case 'grass':
+      return '#70B873'
+    case 'fire':
+      return '#F44900'
+    case 'poison':
+      return '#AD61AE'
+    case 'flying':
+      return '#6892B0'
+    case 'water':
+      return '#33A4F5'
+    case 'bug':
+      return '#316520'
+    case 'normal':
+      return '#8A8A8A'
+    case 'dark':
+      return '#5C5365'
+    case 'dragon':
+      return '#0A6CBF'
+    case 'electric':
+      return '#F4D23B'
+    case 'fairy':
+      return '#EC8FE6'
+    case 'fighting':
+      return '#CE4069'
+    case 'ghost':
+      return '#5269AC'
+    case 'ground':
+      return '#D97745'
+    case 'ice':
+      return '#74CEC0'
+    case 'psychic':
+      return '#F67176'
+    case 'rock':
+      return '#C7B78B'
+    case 'steel':
+      return '#BBBBBB'
+    default:
+      return
+  }
+}};
+
 `
 export const MinText = Styled.p`
 font-family: 'Inter';
@@ -34,6 +76,8 @@ left: 23px;
 export const Container = Styled.div`
 width: 100%;
 height: 100%;
+
+
 `
 export const DetailsText = Styled.p`
 font-family: 'Inter';
@@ -49,18 +93,81 @@ margin-top:10%;
 export const CatchButton = Styled.button`
 position:absolute;
 bottom:5%;
-right:5%;`
+right:5%;
+width:20%;
+border-radius:5px;
+cursor:pointer;
+font-family: 'Inter';
+font-style: bold;
+font-weight: 700;
+font-size: 18px;
+line-height: 19px;
+color: white;
+background-color:transparent;
+:hover{
+  background:rgb(249,0,0);
+  background:linear-gradient(180deg, rgba(249,0,0,1) 0%, rgba(249,0,0,1) 48%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+ color:black;
+ border-radius: 50%;
+ height:20%;
+ width: 20%;
+}
+`
 
 export const TypeDiv = Styled.div`
 width: 99px;
 height: 31px;
-background-color:#70B873;
 border: 1px dashed rgba(255, 255, 255, 0.47);
 border-radius: 8px;
 padding: 5px;
-position: absolute;
+margin: 1px;
+position: relative;
 top:89px;
 left:23px;
+display: flex;
+justify-content: space-between;
+background-color: ${props => {
+  switch (props.type) {
+    case 'grass':
+      return '#70B873'
+    case 'fire':
+      return '#F44900'
+    case 'poison':
+      return '#AD61AE'
+    case 'flying':
+      return '#6892B0'
+    case 'water':
+      return '#33A4F5'
+    case 'bug':
+      return '#316520'
+    case 'normal':
+      return '#8A8A8A'
+    case 'dark':
+      return '#5C5365'
+    case 'dragon':
+      return '#0A6CBF'
+    case 'electric':
+      return '#F4D23B'
+    case 'fairy':
+      return '#EC8FE6'
+    case 'fighting':
+      return '#CE4069'
+    case 'ghost':
+      return '#5269AC'
+    case 'ground':
+      return '#D97745'
+    case 'ice':
+      return '#74CEC0'
+    case 'psychic':
+      return '#F67176'
+    case 'rock':
+      return '#C7B78B'
+    case 'steel':
+      return '#BBBBBB'
+    default:
+      return
+  }
+}};
 
 `
 
@@ -73,6 +180,17 @@ export const DetailsButton = Styled.button`
 position:absolute;
 bottom:5%;
 left:23px;
+cursor:pointer;
+width:20%;
+border: none;
+background-color:transparent;
+color: #FFFFFF;
+font-family: 'Inter';
+font-weight: 500;
+font-size: 18px;
+line-height: 19px;
+text-decoration: underline;
+/* overflow:hidden; */
 `
 export const PokemonImage = Styled.img`
 position:absolute;
@@ -80,4 +198,13 @@ top:-20%;
 right:0;
 width:193px;
 height:193px;
+`
+export const TypeText = Styled.p`
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+color: white;
+text-align: right;
 `

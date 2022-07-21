@@ -11,7 +11,7 @@ const GlobalState = (props) => {
 
     // REQUISIÇÕES
     const getAllPokemons = () => {
-      axios.get("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0")
+      axios.get("https://pokeapi.co/api/v2/pokemon?limit=200&offset=0")
       .then((res) => {
         setAllPokemons(res.data.results)
       })

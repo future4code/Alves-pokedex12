@@ -21,7 +21,6 @@ const HomePage = () => {
       </div>
     )
   })
-
   return (
     <div>
       <Header />
