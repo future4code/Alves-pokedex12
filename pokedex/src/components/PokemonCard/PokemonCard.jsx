@@ -41,7 +41,7 @@ export const PokemonCard = (props) => {
                 setPokeName(res.data.name)
                 setOrder(res.data.order)
                 setTypes(res.data.types)
-                console.log(res.data.sprites.other["official-artwork"].front_default)
+                setImage(res.data.sprites.other["official-artwork"].front_default)
             })
             .catch((err) => {
                 console.log(err)
@@ -50,7 +50,9 @@ export const PokemonCard = (props) => {
 
     const listTypes = types.map((type) => {
         return (
+            
             <p key={type.slot}>{type.type.name}</p>
+            
         )
     })
     
@@ -60,9 +62,7 @@ export const PokemonCard = (props) => {
             <CardDiv>
             <MinText># {order}</MinText>
             <Title>{pokeName.toUpperCase()}</Title>
-            <TypeDiv>
-            <p><strong>Types:</strong>{listTypes}</p>
-            </TypeDiv>
+            <TypeDiv>{listTypes}</TypeDiv>
             <DetailsButton onClick={() => goToDetailsPage(navigate, pokeName)}>Detalhes</DetailsButton>
             <Image src={Pokeball} alt="Imagem de uma pokebola" />
             <PokemonImage src={image} alt="imagem do pokemon selecionado"/>
