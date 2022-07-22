@@ -1,25 +1,13 @@
-*
-{
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-}
+import Styled from 'styled-components'
 
-body{
-  background-color: #192935;
-}
-
-.wrapper
-{
-    position: absolute;
+export const Wrapper = Styled.div`
+position: absolute;
     top: 50%;
     left: 50%;
 
-   transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);`
 
-}
-
-.pokeball {
+export const Pokeball = Styled.div`
   width: 60px;
   height: 60px;
   background-color: #fff;
@@ -28,9 +16,9 @@ body{
   overflow: hidden;
   border: 3px solid;
   animation: frames .8s  linear 0s infinite;
-}
 
-.pokeball:after{
+
+:after{
   content: '';
   position: absolute;
   width: 60px;
@@ -40,7 +28,7 @@ body{
   top: -4px
 }
 
-.pokeball:before{
+:before{
   content: '';
   position: absolute;
   background-color: #fff;
@@ -53,7 +41,6 @@ body{
   z-index: 1;
 }
 
-/* AnimationFrames */
 @keyframes frames{
   0% {
     transform: rotate(0deg);
@@ -62,3 +49,4 @@ body{
     transform: rotate(360deg);
   }
 }
+`
