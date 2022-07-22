@@ -38,6 +38,7 @@ export const PokemonCard = (props) => {
         getPokemonDetails(props.pokeName)
     }, [])
 
+
     const getPokemonDetails = (pokeName) => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             .then((res) => {
@@ -57,6 +58,7 @@ export const PokemonCard = (props) => {
     
     const listTypes = types.map((type) => {
         return (
+
             <TypeDiv type={type.type.name}>
             <VectorSwitch type={type.type.name}/>
             <TypeText key={type.slot}>{type.type.name.toUpperCase()}</TypeText>
@@ -67,19 +69,22 @@ export const PokemonCard = (props) => {
     )
     
  
-     
+        
+           
+
+
     return (
         <Container >
             <CardDiv>
+
             <MinText># {order}</MinText>
             <Title>{pokeName.toUpperCase()}</Title>
             <>{listTypes}</>
             <DetailsButton onClick={() => goToDetailsPage(navigate, pokeName)}>Detalhes</DetailsButton>
             <Image src={Pokeball} alt="Imagem de uma pokebola" />
             <PokemonImage src={image} alt="imagem do pokemon selecionado"/>
-            <CatchButton onClick={() => requests.capturePokemon(pokeName)}>
-            Capturar</CatchButton>
-            </CardDiv>
-        </Container>
+            <CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton>
+                {/* <CatchButton onClick={() => requests.removePokemon(pokeName)}>Remover</CatchButton> */}
+
     )
 }
