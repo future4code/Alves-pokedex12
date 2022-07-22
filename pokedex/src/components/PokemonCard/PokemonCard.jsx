@@ -91,15 +91,10 @@ export const PokemonCard = (props) => {
                 <DetailsButton onClick={() => goToDetailsPage(navigate, pokeName)}>Detalhes</DetailsButton>
                 <Image src={Pokeball} alt="Imagem de uma pokebola" />
                 <PokemonImage src={image} alt="imagem do pokemon selecionado"/>
-                <CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton>
-                <EraseButton onClick={() => requests.removePokemon(pokeName)}>Remover</EraseButton>
+
+                {states.pokedex.includes(pokeName) ? ( <CatchButton onClick={() => requests.removePokemon(pokeName)}>Remover</CatchButton>) : (<CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton>)}
+
             </CardDiv>         
         </Container>
     )
 }
-
-const EraseButton = styled.button`
-    position: absolute;
-    bottom: 5%;
-    right: 30%;
-`
