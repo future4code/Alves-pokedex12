@@ -29,30 +29,29 @@ export const PokemonCard = (props) => {
     const {states, setters, requests} = useContext(GlobalStateContext)
     const [pokeName, setPokeName] = useState("")
     const [order, setOrder] = useState("")
-    const [types, setTypes] = useState([])
+    const [types, setTypes] = useState()
     const [image, setImage] = useState("")
-    // const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
 
 
 
     useEffect(() => {
         getPokemonDetails(props.pokeName)
-        console.log(types)
 
     }, [])
 
 
     const getPokemonDetails = (pokeName) => {
-        // console.log(loading)
-        // setLoading(true)
+        setLoading(!loading)
+        console.log(loading)
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             .then((res) => {
                 setPokeName(res.data.name)
                 setOrder(res.data.order)
                 setTypes(res.data.types)
                 setImage(res.data.sprites.other["official-artwork"].front_default)
-                // setLoading(false)
-                // console.log(loading)
+                setLoading(false)
+                console.log(loading)
 
             })
             .catch((err) => {
@@ -60,13 +59,13 @@ export const PokemonCard = (props) => {
             })
     }
 
-    // const loader =()=>{
-    //     if(loading===true){
-    //         return <Loader/>
-    //     }
+    const loader =()=>{
+        if(loading!==false){
+            return <Loader/>
+        }
 
-    // }     
-    const listTypes = types.map((type) => {
+    }     
+    const listTypes = types && types.map((type) => {
         return (
 
             <TypeDiv type={type.type.name}>
@@ -83,7 +82,8 @@ export const PokemonCard = (props) => {
      
     return (
         <Container >
-            <CardDiv pokeType={types && types[0].type && types[0].type.name}>
+            <>{loader}</>
+            <CardDiv pokeType={types && types[0].type.name}>
             <MinText># {order}</MinText>
             <Title>{pokeName.toUpperCase()}</Title>
             <>{listTypes}</>
@@ -92,7 +92,7 @@ export const PokemonCard = (props) => {
             <PokemonImage src={image} alt="imagem do pokemon selecionado"/>
             <CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton>
                 {/* <CatchButton onClick={() => requests.removePokemon(pokeName)}>Remover</CatchButton> */}
-            <CardDiv/>         
+            </CardDiv>         
         </Container>
     )
 }
