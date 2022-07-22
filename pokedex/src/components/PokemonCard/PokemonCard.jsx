@@ -20,6 +20,7 @@ import { useContext } from 'react'
 import GlobalStateContext from '../../global/GlobalStateContext'
 import VectorSwitch from './VectorSwitch'
 import Loader from '../Loader/Loader'
+import styled from 'styled-components'
 
 
 
@@ -90,9 +91,15 @@ export const PokemonCard = (props) => {
                 <DetailsButton onClick={() => goToDetailsPage(navigate, pokeName)}>Detalhes</DetailsButton>
                 <Image src={Pokeball} alt="Imagem de uma pokebola" />
                 <PokemonImage src={image} alt="imagem do pokemon selecionado"/>
-                {/* <CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton> */}
-                <CatchButton onClick={() => requests.removePokemon(pokeName)}>Remover</CatchButton>
+                <CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton>
+                <EraseButton onClick={() => requests.removePokemon(pokeName)}>Remover</EraseButton>
             </CardDiv>         
         </Container>
     )
 }
+
+const EraseButton = styled.button`
+    position: absolute;
+    bottom: 5%;
+    right: 30%;
+`
