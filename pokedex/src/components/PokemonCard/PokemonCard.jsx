@@ -41,6 +41,7 @@ export const PokemonCard = (props) => {
 
     }, [])
 
+
     const getPokemonDetails = (pokeName) => {
         // console.log(loading)
         // setLoading(true)
@@ -67,6 +68,7 @@ export const PokemonCard = (props) => {
     // }     
     const listTypes = types.map((type) => {
         return (
+
             <TypeDiv type={type.type.name}>
             <VectorSwitch type={type.type.name}/>
             <TypeText key={type.slot}>{type.type.name.toUpperCase()}</TypeText>
@@ -76,6 +78,7 @@ export const PokemonCard = (props) => {
     }
     )
     
+
     
      
     return (
@@ -87,9 +90,9 @@ export const PokemonCard = (props) => {
             <DetailsButton onClick={() => goToDetailsPage(navigate, pokeName)}>Detalhes</DetailsButton>
             <Image src={Pokeball} alt="Imagem de uma pokebola" />
             <PokemonImage src={image} alt="imagem do pokemon selecionado"/>
-            <CatchButton onClick={() => requests.capturePokemon(pokeName)}>
-            Capturar</CatchButton>
-            </CardDiv>
+            <CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton>
+                {/* <CatchButton onClick={() => requests.removePokemon(pokeName)}>Remover</CatchButton> */}
+            <CardDiv/>         
         </Container>
     )
 }
