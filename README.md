@@ -20,15 +20,14 @@ LINK DO SURGE AQUI
 - David Henrique Souza da Silva
 
 ### Prints das telas
-HomePage
 ![image](https://user-images.githubusercontent.com/104565942/180577627-2539ea0c-55de-4740-8138-c721e707dfb0.png)
-PokedexPage
+
 ![image](https://user-images.githubusercontent.com/104565942/180577695-91db8673-5c46-40e8-910d-f5d043e8c5ec.png)
 
 ----TELA DAVID-----
-MobilePage
+
 ![image](https://user-images.githubusercontent.com/104565942/180577720-319ef731-b303-451a-a3f4-6677395e5efd.png)
-TabletPage
+
 ![image](https://user-images.githubusercontent.com/104565942/180577770-98cd0208-b8f5-4937-9598-e0666c447785.png)
 
 
