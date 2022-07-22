@@ -43,7 +43,7 @@ export const PokemonCard = (props) => {
 
     const getPokemonDetails = (pokeName) => {
         setLoading(!loading)
-        console.log(loading)
+        // console.log(loading)
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             .then((res) => {
                 setPokeName(res.data.name)
@@ -51,7 +51,7 @@ export const PokemonCard = (props) => {
                 setTypes(res.data.types)
                 setImage(res.data.sprites.other["official-artwork"].front_default)
                 setLoading(false)
-                console.log(loading)
+                // console.log(loading)
 
             })
             .catch((err) => {
@@ -84,14 +84,14 @@ export const PokemonCard = (props) => {
         <Container >
             <>{loader}</>
             <CardDiv pokeType={types && types[0].type.name}>
-            <MinText># {order}</MinText>
-            <Title>{pokeName.toUpperCase()}</Title>
-            <>{listTypes}</>
-            <DetailsButton onClick={() => goToDetailsPage(navigate, pokeName)}>Detalhes</DetailsButton>
-            <Image src={Pokeball} alt="Imagem de uma pokebola" />
-            <PokemonImage src={image} alt="imagem do pokemon selecionado"/>
-            <CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton>
-                {/* <CatchButton onClick={() => requests.removePokemon(pokeName)}>Remover</CatchButton> */}
+                <MinText># {order}</MinText>
+                <Title>{pokeName.toUpperCase()}</Title>
+                <>{listTypes}</>
+                <DetailsButton onClick={() => goToDetailsPage(navigate, pokeName)}>Detalhes</DetailsButton>
+                <Image src={Pokeball} alt="Imagem de uma pokebola" />
+                <PokemonImage src={image} alt="imagem do pokemon selecionado"/>
+                {/* <CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton> */}
+                <CatchButton onClick={() => requests.removePokemon(pokeName)}>Remover</CatchButton>
             </CardDiv>         
         </Container>
     )

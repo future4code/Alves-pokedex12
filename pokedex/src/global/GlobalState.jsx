@@ -24,19 +24,23 @@ const GlobalState = (props) => {
     const capturePokemon = (pokeName) => {
       console.log(pokeName)
       setPokedex([...pokedex, pokeName])
-      localStorage.setItem('pokedex', JSON.stringify(pokedex))
+      console.log(pokedex)
     }
 
+    localStorage.setItem('pokedex', JSON.stringify(pokedex))
     
     
 
     // FUNÇÃO DE REMOVER DA POKEDEX
     const removePokemon = (pokeName) => {
-      setPokedex(pokedex.filter((pokemon) => {
+      const newPokedex = pokedex.filter((pokemon) => {
         if(pokemon !== pokeName){
           return pokemon
         }
-      }))
+      })
+      setPokedex(newPokedex)
+      console.log(pokedex)
+      // localStorage.setItem('pokedex', JSON.stringify(pokedex))
     }
   
     const pokedexStorage = JSON.parse(localStorage.getItem('pokedex'))
