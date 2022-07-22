@@ -35,6 +35,7 @@ export const PokemonCard = (props) => {
         getPokemonDetails(props.pokeName)
     }, [])
 
+
     const getPokemonDetails = (pokeName) => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             .then((res) => {
@@ -55,18 +56,19 @@ export const PokemonCard = (props) => {
             
         )
     })
-    
 
     return (
         <Container>
             <CardDiv>
-            <MinText># {order}</MinText>
-            <Title>{pokeName.toUpperCase()}</Title>
-            <TypeDiv>{listTypes}</TypeDiv>
-            <DetailsButton onClick={() => goToDetailsPage(navigate, pokeName)}>Detalhes</DetailsButton>
-            <Image src={Pokeball} alt="Imagem de uma pokebola" />
-            <PokemonImage src={image} alt="imagem do pokemon selecionado"/>
-            <CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton>
+                <MinText># {order}</MinText>
+                <Title>{pokeName.toUpperCase()}</Title>
+                <TypeDiv>{listTypes}</TypeDiv>
+                <DetailsButton onClick={() => goToDetailsPage(navigate, pokeName)}>Detalhes</DetailsButton>
+                <Image src={Pokeball} alt="Imagem de uma pokebola" />
+                <PokemonImage src={image} alt="imagem do pokemon selecionado"/>
+            
+                <CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton>
+                {/* <CatchButton onClick={() => requests.removePokemon(pokeName)}>Remover</CatchButton> */}
             </CardDiv>
         </Container>
     )
