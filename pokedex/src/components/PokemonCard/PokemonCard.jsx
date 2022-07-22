@@ -20,6 +20,7 @@ import { useContext } from 'react'
 import GlobalStateContext from '../../global/GlobalStateContext'
 import VectorSwitch from './VectorSwitch'
 import Loader from '../Loader/Loader'
+import styled from 'styled-components'
 
 
 
@@ -42,7 +43,6 @@ export const PokemonCard = (props) => {
 
 
     const getPokemonDetails = (pokeName) => {
-        console.log(loading)
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             .then((res) => {
                 setLoading(true)
@@ -50,7 +50,7 @@ export const PokemonCard = (props) => {
                 setOrder(res.data.order)
                 setTypes(res.data.types)
                 setImage(res.data.sprites.other["official-artwork"].front_default)
-                console.log(loading)
+
 
             })
             .catch((err) => {
@@ -84,14 +84,17 @@ export const PokemonCard = (props) => {
         <Container >
             <>{loader}</>
             <CardDiv pokeType={types && types[0].type.name}>
-            <MinText># {order}</MinText>
-            <Title>{pokeName.toUpperCase()}</Title>
-            <>{listTypes}</>
-            <DetailsButton onClick={() => goToDetailsPage(navigate, pokeName)}>Detalhes</DetailsButton>
-            <Image src={Pokeball} alt="Imagem de uma pokebola" />
-            <PokemonImage src={image} alt="imagem do pokemon selecionado"/>
-            <CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton>
-            <button onClick={() => requests.removePokemon(pokeName)}>Remover</button>
+
+                <MinText># {order}</MinText>
+                <Title>{pokeName.toUpperCase()}</Title>
+                <>{listTypes}</>
+                <DetailsButton onClick={() => goToDetailsPage(navigate, pokeName)}>Detalhes</DetailsButton>
+                <Image src={Pokeball} alt="Imagem de uma pokebola" />
+                <PokemonImage src={image} alt="imagem do pokemon selecionado"/>
+
+                {states.pokedex.includes(pokeName) ? ( <CatchButton onClick={() => requests.removePokemon(pokeName)}>Remover</CatchButton>) : (<CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton>)}
+
+
             </CardDiv>         
             {!loading && loader}
         </Container>
