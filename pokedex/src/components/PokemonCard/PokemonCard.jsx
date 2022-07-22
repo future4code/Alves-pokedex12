@@ -43,25 +43,24 @@ export const PokemonCard = (props) => {
 
 
     const getPokemonDetails = (pokeName) => {
-        setLoading(!loading)
-        // console.log(loading)
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             .then((res) => {
+                setLoading(true)
                 setPokeName(res.data.name)
                 setOrder(res.data.order)
                 setTypes(res.data.types)
                 setImage(res.data.sprites.other["official-artwork"].front_default)
-                setLoading(false)
-                // console.log(loading)
+
 
             })
             .catch((err) => {
                 console.log(err)
             })
+
     }
 
     const loader =()=>{
-        if(loading!==false){
+        if(loading===true){
             return <Loader/>
         }
 
@@ -85,6 +84,7 @@ export const PokemonCard = (props) => {
         <Container >
             <>{loader}</>
             <CardDiv pokeType={types && types[0].type.name}>
+
                 <MinText># {order}</MinText>
                 <Title>{pokeName.toUpperCase()}</Title>
                 <>{listTypes}</>
@@ -94,7 +94,9 @@ export const PokemonCard = (props) => {
 
                 {states.pokedex.includes(pokeName) ? ( <CatchButton onClick={() => requests.removePokemon(pokeName)}>Remover</CatchButton>) : (<CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton>)}
 
+
             </CardDiv>         
+            {!loading && loader}
         </Container>
     )
 }
