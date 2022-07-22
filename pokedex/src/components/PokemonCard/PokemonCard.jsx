@@ -14,12 +14,12 @@ import {
   Image,
   PokemonImage,
   TypeText,
-  ColorCard
-} from './StyledCard'
+  } from './StyledCard'
 import Pokeball from '../../assets/Pokeball.png'
 import { useContext } from 'react'
 import GlobalStateContext from '../../global/GlobalStateContext'
 import VectorSwitch from './VectorSwitch'
+import Loader from '../Loader/Loader'
 
 
 
@@ -31,30 +31,40 @@ export const PokemonCard = (props) => {
     const [order, setOrder] = useState("")
     const [types, setTypes] = useState([])
     const [image, setImage] = useState("")
+    // const [loading, setLoading] = useState(false)
 
 
 
     useEffect(() => {
         getPokemonDetails(props.pokeName)
+        console.log(types)
+
     }, [])
 
     const getPokemonDetails = (pokeName) => {
+        // console.log(loading)
+        // setLoading(true)
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             .then((res) => {
                 setPokeName(res.data.name)
                 setOrder(res.data.order)
                 setTypes(res.data.types)
                 setImage(res.data.sprites.other["official-artwork"].front_default)
-               
-                
+                // setLoading(false)
+                // console.log(loading)
+
             })
             .catch((err) => {
                 console.log(err)
             })
     }
 
-     
-    
+    // const loader =()=>{
+    //     if(loading===true){
+    //         return <Loader/>
+    //     }
+
+    // }     
     const listTypes = types.map((type) => {
         return (
             <TypeDiv type={type.type.name}>
@@ -66,11 +76,11 @@ export const PokemonCard = (props) => {
     }
     )
     
- 
+    
      
     return (
         <Container >
-            <CardDiv>
+            <CardDiv pokeType={types && types[0].type && types[0].type.name}>
             <MinText># {order}</MinText>
             <Title>{pokeName.toUpperCase()}</Title>
             <>{listTypes}</>

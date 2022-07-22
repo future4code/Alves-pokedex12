@@ -8,45 +8,51 @@ border-radius:12px;
 background-color: ${props => {
   switch (props.pokeType) {
     case 'grass':
-      return '#70B873'
+      return '#729F92'
     case 'fire':
-      return '#F44900'
+      return '#EAAB7D'
     case 'poison':
-      return '#AD61AE'
+      return '#AD30AE'
     case 'flying':
       return '#6892B0'
     case 'water':
-      return '#33A4F5'
+      return '#71C3FF'
     case 'bug':
-      return '#316520'
+      return '#76A866'
     case 'normal':
-      return '#8A8A8A'
+      return '#BF9762'
     case 'dark':
-      return '#5C5365'
+      return '#5C3265'
     case 'dragon':
-      return '#0A6CBF'
+      return '#004170'
     case 'electric':
-      return '#F4D23B'
+      return '#ccb85c'
     case 'fairy':
-      return '#EC8FE6'
+      return '#EC9FE6'
     case 'fighting':
-      return '#CE4069'
+      return '#CE7069'
     case 'ghost':
-      return '#5269AC'
+      return '#5289AC'
     case 'ground':
-      return '#D97745'
+      return '#D89030'
     case 'ice':
-      return '#74CEC0'
+      return '#30CEC0'
     case 'psychic':
-      return '#F67176'
+      return '#F65076'
     case 'rock':
-      return '#C7B78B'
+      return '#C7A78B'
     case 'steel':
       return '#BBBBBB'
     default:
       return
   }
 }};
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  width:100%;
+  height:210px;
+  
+  }
+
 
 `
 export const MinText = Styled.p`
@@ -59,6 +65,9 @@ color: white;
 position: absolute;
 top: 25px;
 left: 23px;
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  font-size: 14px;
+  }
 `
 export const Title = Styled.h1`
 width: 159px;
@@ -72,6 +81,9 @@ color: white;
 position: absolute;
 top: 40px;
 left: 23px;
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    font-size: 20px;
+  }
 `
 export const Container = Styled.div`
 width: 100%;
@@ -94,16 +106,17 @@ export const CatchButton = Styled.button`
 position:absolute;
 bottom:5%;
 right:5%;
-width:20%;
+width:30%;
 border-radius:5px;
 cursor:pointer;
 font-family: 'Inter';
 font-style: bold;
 font-weight: 700;
-font-size: 18px;
+font-size: 20px;
 line-height: 19px;
 color: white;
-background-color:transparent;
+background-color:#fff44444;
+border:none;
 :hover{
   background:rgb(249,0,0);
   background:linear-gradient(180deg, rgba(249,0,0,1) 0%, rgba(249,0,0,1) 48%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
@@ -198,6 +211,11 @@ top:-20%;
 right:0;
 width:193px;
 height:193px;
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  width:140px;
+  height:180px;
+  
+  }
 `
 export const TypeText = Styled.p`
 font-family: 'Inter';
