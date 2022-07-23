@@ -1,10 +1,8 @@
 import React from 'react'
-import {useNavigate, useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 const DetailsPage = () => {
-
   const params = useParams()
-
   return (
     <div>
       DetailsPage
