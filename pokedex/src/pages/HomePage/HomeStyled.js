@@ -11,4 +11,8 @@ export const ContainerGrid = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
   }
+  @media screen and (min-device-width: 481px) and (max-device-width: 1180px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
 `

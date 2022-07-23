@@ -20,7 +20,6 @@ import { useContext } from 'react'
 import GlobalStateContext from '../../global/GlobalStateContext'
 import VectorSwitch from './VectorSwitch'
 import Loader from '../Loader/Loader'
-import styled from 'styled-components'
 
 
 
@@ -43,28 +42,30 @@ export const PokemonCard = (props) => {
 
 
     const getPokemonDetails = (pokeName) => {
+        setLoading(!loading)
+        // console.log(loading)
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             .then((res) => {
-                setLoading(true)
                 setPokeName(res.data.name)
                 setOrder(res.data.order)
                 setTypes(res.data.types)
                 setImage(res.data.sprites.other["official-artwork"].front_default)
-
-
-            })
-            .catch((err) => {
+            }).catch((err) => {
                 console.log(err)
-            })
+              })
 
-    }
+            }
+                
 
-    const loader =()=>{
+
+
+
+const loader= ()=>{               
         if(loading===true){
             return <Loader/>
-        }
 
-    }     
+    }
+}     
     const listTypes = types && types.map((type) => {
         return (
 
@@ -82,8 +83,9 @@ export const PokemonCard = (props) => {
      
     return (
         <Container >
-            <>{loader}</>
+            {/* <>{loader}</> */}
             <CardDiv pokeType={types && types[0].type.name}>
+
 
                 <MinText># {order}</MinText>
                 <Title>{pokeName.toUpperCase()}</Title>
@@ -94,9 +96,8 @@ export const PokemonCard = (props) => {
 
                 {states.pokedex.includes(pokeName) ? ( <CatchButton onClick={() => requests.removePokemon(pokeName)}>Remover</CatchButton>) : (<CatchButton onClick={() => requests.capturePokemon(pokeName)}>Capturar</CatchButton>)}
 
-
             </CardDiv>         
-            {!loading && loader}
         </Container>
     )
 }
+

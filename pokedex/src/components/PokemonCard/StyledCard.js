@@ -48,12 +48,19 @@ background-color: ${props => {
   }
 }};
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  width:100%;
+  width:350px;
   height:210px;
+  left:1%;
   
-  }
+}
+@media (min-width:600px) (max-device-width: 800px)  { 
+  width:80%;
+  height:180px;}
+@media screen and (min-device-width: 481px) and (max-device-width: 1180px) {
+  width:90%;
+  height:180px;
 
-
+}
 `
 export const MinText = Styled.p`
 font-family: 'Inter';
@@ -68,6 +75,7 @@ left: 23px;
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
   font-size: 14px;
   }
+
 `
 export const Title = Styled.h1`
 width: 159px;
@@ -88,6 +96,7 @@ left: 23px;
 export const Container = Styled.div`
 width: 100%;
 height: 100%;
+
 
 
 `
@@ -118,12 +127,7 @@ color: white;
 background-color:#fff44444;
 border:none;
 :hover{
-  background:rgb(249,0,0);
-  background:linear-gradient(180deg, rgba(249,0,0,1) 0%, rgba(249,0,0,1) 48%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
- color:black;
- border-radius: 50%;
- height:20%;
- width: 20%;
+  background-color:#fff88888;
 }
 `
 
@@ -214,8 +218,15 @@ height:193px;
 @media screen and (min-device-width: 320px) and (max-device-width: 480px) {
   width:140px;
   height:180px;
-  
+
   }
+@media (min-width:600px) and (max-device-width:800px)  { 
+  width:140px;
+  height:180px;}
+  @media screen and (min-device-width: 801px) and (max-device-width: 1180px) {
+  width:140px;
+  height:180px;
+}
 `
 export const TypeText = Styled.p`
 font-family: 'Inter';
