@@ -8,12 +8,16 @@ const GlobalState = (props) => {
   // Lista de todos os pokemons e os da Pokedex
   const [allPokemons, setAllPokemons] = useState([])
   const [pokedex, setPokedex] = useState([])
+  const [isLoading,setIsLoading] = useState(true)
 
+  
   // REQUISIÇÕES
+  
   const getAllPokemons = () => {
     axios.get("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0")
       .then((res) => {
         setAllPokemons(res.data.results)
+        setIsLoading(false)
       })
       .catch((err) => {
         alert(err.response.data)
@@ -38,8 +42,8 @@ const GlobalState = (props) => {
   }
 
   // ORGANIZANDO
-  const states = { allPokemons, pokedex }
-  const setters = { setPokedex }
+  const states = { allPokemons, pokedex, isLoading  }
+  const setters = { setPokedex, setIsLoading  }
   const requests = { getAllPokemons, capturePokemon, removePokemon }
 
   return (

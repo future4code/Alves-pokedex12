@@ -5,6 +5,7 @@ import { PokemonCard } from '../../components/PokemonCard/PokemonCard'
 import { useContext } from 'react'
 import GlobalStateContext from '../../global/GlobalStateContext'
 import { ContainerGrid } from './HomeStyled'
+import Loader from '../../components/Loader/Loader'
 
 const HomePage = () => {
   const { states, setters, requests } = useContext(GlobalStateContext)
@@ -20,10 +21,14 @@ const HomePage = () => {
       </div>
     )
   })
+  console.log(states.isLoading)
+
   return (
     <div>
       <Header />
-      <ContainerGrid>{allPokemonsList}</ContainerGrid>
+      <ContainerGrid>
+        {states.isLoading === false ? allPokemonsList : <Loader />}
+      </ContainerGrid>
     </div>
   )
 }
