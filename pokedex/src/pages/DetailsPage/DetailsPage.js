@@ -3,21 +3,28 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Header from '../../components/Header/Header'
-import { Div1, Div2, Div3, Div3_1, Div3_2, Div4, Div5, Div5_1, Div5_2, ImgMain, ImgPokeball } from './DetailsStyled'
+import { DivHeader, Div1, Div2, Div3, Div3_1, Div3_2, Div4, Div5, Div5_1, Div5_2, ImgMain, ImgPokeball } from './DetailsStyled'
 import Pokeball2 from '../../assets/Pokeball2.png'
 import { TypeDiv, TypeText } from '../../components/PokemonCard/StyledCard'
 import VectorSwitch from '../../components/PokemonCard/VectorSwitch'
+import PokemonLogo from '../../assets/PokemonLogo.png'
+import { goToHomePage, goToPokedexPage } from '../../routes/Cordinator'
+import { useContext } from 'react'
+import GlobalStateContext from '../../global/GlobalStateContext'
 
 const DetailsPage = () => {
-
+  const navigate = useNavigate()
+  const params = useParams()
+  
   useEffect(() => {
     getPokemon()
   }, [])
-
-  const params = useParams()
+  
+  const { states, setters, requests } = useContext(GlobalStateContext)
   const [pokemonFrontImg, setPokemonFrontImg] = useState('')
   const [pokemonBackImg, setPokemonBackImg] = useState('')
   const [pokemonMainImg, setPokemonMainImg] = useState('')
+  const [pokemonName, setPokemonName] = useState('')
   const [pokemonId, setPokemonId] = useState('')
   const [pokemonTypes, setPokemonTypes] = useState()
   const [hp, setHp] = useState()
@@ -37,6 +44,7 @@ const DetailsPage = () => {
       setPokemonFrontImg(res.data.sprites.versions['generation-v']['black-white'].animated.front_default)
       setPokemonBackImg(res.data.sprites.versions['generation-v']['black-white'].animated.back_default)
       setPokemonMainImg(res.data.sprites.other['official-artwork'].front_default)
+      setPokemonName(res.data.name)
       setPokemonId(res.data.id)
       setPokemonTypes(res.data.types)
       setHp(res.data.stats[0].base_stat)
@@ -67,7 +75,16 @@ const totalStats = hp+attack+defense+spAttack+spDefense+speed
 
   return (
     <Div1>
-      <Header />
+      <DivHeader>
+      {states.pokedex.includes(pokemonName) ? (<button onClick={() => requests.removePokemon(pokemonName)}>Remover</button>) : (<button onClick={() => requests.capturePokemon(pokemonName)}>Capturar</button>)}
+      <img
+        src={PokemonLogo}
+        alt='Logo Pokémon'
+        onClick={()=>goToHomePage(navigate)}
+      />
+      
+      <button onClick={()=>goToPokedexPage(navigate)}>Pokedex</button>
+      </DivHeader>
       <h5>Detalhes</h5>
       <Div2 pokemonTypes={pokemonTypes && pokemonTypes[0].type.name}>
       <ImgPokeball src={Pokeball2}/>
