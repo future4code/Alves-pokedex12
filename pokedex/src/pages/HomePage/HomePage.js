@@ -21,7 +21,6 @@ const HomePage = () => {
       </div>
     )
   })
-  console.log(states.isLoading)
 
   return (
     <div>
