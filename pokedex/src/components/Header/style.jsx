@@ -5,11 +5,14 @@ display: flex;
 position: relative;
 width: 100vw;
 height: 160px;
-max-width: 100vw;
+width: 100vw;
+max-width: 100%;
+overflow-x: hidden;
 justify-content: center;
 align-items: center;
 img{
     position: absolute;
+    cursor: pointer;
     @keyframes flying {
         0%, 100% {
             transform: translateY(0)
@@ -21,7 +24,7 @@ img{
     animation: flying infinite 3s ease-in-out;
 }
 button{
-    margin: 0 20px 0 auto;
+    margin: 0 30px 0 auto;
     width: 267px;
     height: 64px;
     background-color: #33A4F5;
@@ -37,8 +40,6 @@ button{
     :hover{
         background-color: #e11f1f;
         border: 2px solid white;
-        width: 287px;
-        height: 74px;
         text-decoration: underline;
         cursor: pointer;
         transition: 0.2s;
