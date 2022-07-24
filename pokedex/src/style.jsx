@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-background: #76b852;
-background: -webkit-linear-gradient(to right, #8DC26F, #76b852); 
+background-color: #76b852;
+background: linear-gradient(to right, #8DC26F, #76b852); 
 background: linear-gradient(to bottom, #8DC26F, #76b852);
-min-height: 100vh;
+margin: 0;
+padding: 0;
+min-height: 150vh;
+min-width: 110vw;
+
+
 `
