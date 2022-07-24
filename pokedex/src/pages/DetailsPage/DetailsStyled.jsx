@@ -7,10 +7,11 @@ height: 160px;
 width: 100vw;
 max-width: 100%;
 overflow-x: hidden;
-justify-content: space-between;
+justify-content: center;
 align-items: center;
 img{    
     cursor: pointer;
+    position: absolute;
     @keyframes flying {
         0%, 100% {
             transform: translateY(0)
@@ -22,7 +23,7 @@ img{
     animation: flying infinite 3s ease-in-out;
 }
 button{
-    margin: 0 30px 0 30px;
+    margin: 0 30px 0 auto;
     width: 267px;
     height: 64px;
     background-color: #33A4F5;

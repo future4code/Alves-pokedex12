@@ -75,7 +75,6 @@ const DetailsPage = () => {
   return (
     <Div1>
       <DivHeader>
-        <button onClick={() => goToPokedexPage(navigate)}>Pokedex</button>
         <img
           src={PokemonLogo}
           alt='Logo Pokémon'

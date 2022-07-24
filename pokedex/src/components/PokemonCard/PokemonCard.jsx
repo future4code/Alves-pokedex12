@@ -41,7 +41,7 @@ export const PokemonCard = (props) => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
             .then((res) => {
                 setPokeName(res.data.name)
-                setOrder(res.data.order)
+                setOrder(res.data.id)
                 setTypes(res.data.types)
                 setImage(res.data.sprites.other["official-artwork"].front_default)
             })
