@@ -1,7 +1,6 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import Header from '../../components/Header/Header'
-import axios from 'axios'
 import { PokemonCard } from '../../components/PokemonCard/PokemonCard'
 import { useContext } from 'react'
 import GlobalStateContext from '../../global/GlobalStateContext'
