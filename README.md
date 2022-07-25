@@ -11,7 +11,7 @@ O projeto foi baseado na utilização da API pública PokeApi para acessar infor
 * Aplicação disponível para telas mobile, tablets e desktop.
 
 ### LINK DO SITE
-LINK DO SURGE AQUI
+makeshift-grape.surge.sh
 
 ### NOME DOS DESENVOLVEDORES
 
@@ -24,7 +24,7 @@ LINK DO SURGE AQUI
 
 ![image](https://user-images.githubusercontent.com/104565942/180577695-91db8673-5c46-40e8-910d-f5d043e8c5ec.png)
 
-----TELA DAVID-----
+![image](https://user-images.githubusercontent.com/104565942/180675306-52fffbd1-2950-4a42-bee9-79de32c9517f.png)
 
 ![image](https://user-images.githubusercontent.com/104565942/180577720-319ef731-b303-451a-a3f4-6677395e5efd.png)
 
